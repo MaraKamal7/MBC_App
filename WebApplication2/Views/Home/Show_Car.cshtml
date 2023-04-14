@@ -1,0 +1,161 @@
+﻿@*
+@{
+    ViewBag.Title = "Show_Car";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style="background-color:gray">
+    <h2>Show_Car</h2>
+
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace"> Types of Car </font></labelfor>
+
+        <body>
+            <select class="combo">
+                <option value="Select">Type</option>
+                <option value="html">HONDA</option>
+                <option value="css">TOYOTA</option>
+                <option value="javascript">MITSUBISHI</option>
+                <option value="bootstrap">FIAT</option>
+                <option value="react">NISSAN</option>
+                <option value="vue">MAZDA</option>
+                <option value="2">CHEVROLET</option>
+                <option value="4">CITROEN</option>
+                <option value="5">DAIHATSU</option>
+                <option value="6">SUZUKI</option>
+                <option value="7">GMC</option>
+                <option value="8">HYUNDAI</option>
+                <option value="CSS fw">OPEL</option>
+                <option value="rw">SKODA</option>
+                <option value="dom">FORD</option>
+                <option value="preprocessors">AUDI</option>
+                <option value="api">JAGUAR</option>
+
+            </select>
+            <br />
+        </body>
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace"> Model of Car </font></labelfor>
+
+        <body>
+            <select class="combo">
+                <option value="Select">Model</option>
+                <option value="html">2010</option>
+                <option value="css">2011</option>
+                <option value="javascript">2012</option>
+                <option value="bootstrap">2013</option>
+                <option value="react">2014</option>
+                <option value="vue">2015</option>
+                <option value="2">2016</option>
+                <option value="4">2017</option>
+                <option value="5">2018</option>
+                <option value="6">2019</option>
+                <option value="7">2020</option>
+                <option value="8">2021</option>
+                <option value="CSS fw">2022</option>
+
+            </select>
+        </body>
+        <br>
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace">Color </font></labelfor>
+        <input type="email" class="form-control" id="floatingInputValue" placeholder="" value="">
+        <br />
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace"> Liceinse </font></labelfor>
+        <input type="email" class="form-control" id="floatingInputValue" placeholder="" value="">
+        <br />
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace">Case Number </font></labelfor>
+        <input type="email" class="form-control" id="floatingInputValue" placeholder="" value="">
+        <br />
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace">Engine </font></labelfor>
+        <input type="email" class="form-control" id="floatingInputValue" placeholder="" value="">
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace">From </font></labelfor>
+        <br />
+
+        <body>
+            <select class="combo">
+                <option value="Select">day</option>
+                <option value="html">satarday</option>
+                <option value="css">sunday</option>
+                <option value="javascript">monday</option>
+                <option value="bootstrap">tuesday</option>
+                <option value="react">winthday</option>
+                <option value="vue">turthday</option>
+                <option value="2">friday</option>
+            </select>
+        </body>
+
+        <body>
+            <select class="combo">
+                <option value="Select">Time</option>
+                <option value="html">12:00</option>
+                <option value="css">12:30</option>
+                <option value="javascript">1:00</option>
+                <option value="bootstrap">1:30</option>
+                <option value="react">2:00</option>
+                <option value="vue">2:30</option>
+                <option value="2">3:00</option>
+                <option value="4">3:30</option>
+                <option value="5">4:00</option>
+                <option value="6">4:30</option>
+                <option value="7">5:00</option>
+                <option value="8">5:30</option>
+                <option value="CSS fw">6:00</option>
+                <option value="rw">6:30</option>
+                <option value="dom">7:00</option>
+                <option value="preprocessors">7:30</option>
+                <option value="api">8:00</option>
+                <option value="9">8:30</option>
+                <option value="10">9:00</option>
+                <option value="11">9:30</option>
+                <option value="12">10:00</option>
+                <option value="13">10:30</option>
+                <option value="14">11:00</option>
+                <option value="15">11:30</option>
+            </select>
+        </body>
+    </body>
+<style>
+    body {
+        text-align: center;
+    }
+
+    button {
+        color: Darkgoldenrodyellow;
+        font-size: 30px;
+    }
+
+    .b1 {
+        color: cornflowerblue;
+    }
+
+    .b2 {
+        color: cornflowerblue;
+    }
+</style>
+
+<br>
+<br>
+<button name="button" value="OK" type="button" onclick="hello()"> back</button>
+<br>
+<br>
+<button name="button" value="OK" type="button" onclick="hello()"> Submit</button>
+*@
+@{
+    ViewBag.Title = "Show1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<html>
+<body>
+    <h2><font color="black" size="14" face="Didot">MBC</font></h2>
+    <h2><font color="black" size="14" face="Didot">Rent</font></h2>
+
+    <a href="/Home/RentCar"><img src="~/images/55.jpg" alt="bike" height="181" width="278" /> </a>
+
+    <a href="/Home/Rent"><img src="~/images/33.jpg" alt="bike" height="181" width="278" /> </a>
+
+    <a href="/Bike_Operation/Create"><img src="~/images/11.jpg" alt="bike" height="181" width="278" /> </a>
+
+    <a href="/Home/page" class="btn btn-success">Back</a>
+</body>
+</body>
+</html>

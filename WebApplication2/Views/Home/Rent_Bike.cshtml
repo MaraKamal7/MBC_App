@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Rent_Bike";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rent_Bike</h2>
+<body style="background-color:gray">
+
+    <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace"> Types of Bike  </font></labelfor>
+
+    <body>
+        <select class="combo">
+            <option value="Select">Type</option>
+            <option value="html">Road BIKE</option>
+            <option value="css">Mountain BIKE</option>
+            <option value="javascript">Hybrid BIKE</option>
+            <option value="bootstrap">Speciality BIKES</option>
+
+        </select>
+        <br />
+
+        @*<labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace">Recipet </font></labelfor>
+            <input type="email" class="form-control" id="floatingInputValue" placeholder="" value="">*@
+        <br />
+        <labelfor for="floatingInput" style="width: 80px; height: 60px;" class="b2"><font color="black" size="5" face="Monospace">Model </font></labelfor>
+        <input type="email" class="form-control" id="floatingInputValue" placeholder="" value="">
+
+        <a href="/Home/Page" class="btn btn-success">Submit  </a>
+        <a href="/Home/Show1" class="btn btn-success">Cancel </a>
+    </body>
+

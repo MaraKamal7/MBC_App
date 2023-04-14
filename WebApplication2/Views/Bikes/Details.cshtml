@@ -1,0 +1,51 @@
+﻿@model WebApplication2.Models.Bike
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bike</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BikeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BikeType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BikeModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BikeModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BikeRecipet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BikeRecipet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sign.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sign.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BikeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TCarDBModelStoreContainer" CdmEntityContainer="TCarDBEntities1">
+    <EntitySetMapping Name="Bikes">
+      <EntityTypeMapping TypeName="TCarDBModel.Bike">
+        <MappingFragment StoreEntitySet="Bike">
+          <ScalarProperty Name="BikeID" ColumnName="BikeID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="BikeType" ColumnName="BikeType" />
+          <ScalarProperty Name="BikeModel" ColumnName="BikeModel" />
+          <ScalarProperty Name="BikeRecipet" ColumnName="BikeRecipet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bike_Operation">
+      <EntityTypeMapping TypeName="TCarDBModel.Bike_Operation">
+        <MappingFragment StoreEntitySet="Bike_Operation">
+          <ScalarProperty Name="CoID" ColumnName="CoID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TimeDate" ColumnName="TimeDate" />
+          <ScalarProperty Name="BikeType" ColumnName="BikeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="TCarDBModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="CarLiceinse" ColumnName="CarLiceinse" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="Engine" ColumnName="Engine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_Operation">
+      <EntityTypeMapping TypeName="TCarDBModel.Car_Operation">
+        <MappingFragment StoreEntitySet="Car_Operation">
+          <ScalarProperty Name="CoID" ColumnName="CoID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TimeDate" ColumnName="TimeDate" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Motorcycles">
+      <EntityTypeMapping TypeName="TCarDBModel.Motorcycle">
+        <MappingFragment StoreEntitySet="Motorcycle">
+          <ScalarProperty Name="MotorcycleID" ColumnName="MotorcycleID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="MotorcycleType" ColumnName="MotorcycleType" />
+          <ScalarProperty Name="MotorcycleLiceinse" ColumnName="MotorcycleLiceinse" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Motorcycle_Operation">
+      <EntityTypeMapping TypeName="TCarDBModel.Motorcycle_Operation">
+        <MappingFragment StoreEntitySet="Motorcycle_Operation">
+          <ScalarProperty Name="CoID" ColumnName="CoID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TimeDate" ColumnName="TimeDate" />
+          <ScalarProperty Name="MotorcycleType" ColumnName="MotorcycleType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Signs">
+      <EntityTypeMapping TypeName="TCarDBModel.Sign">
+        <MappingFragment StoreEntitySet="Sign">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CustomarID" ColumnName="CustomarID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TCarDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bike">
+          <Key>
+            <PropertyRef Name="BikeID" />
+          </Key>
+          <Property Name="BikeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CID" Type="int" />
+          <Property Name="BikeType" Type="varchar" MaxLength="50" />
+          <Property Name="BikeModel" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="BikeRecipet" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Bike_Operation">
+          <Key>
+            <PropertyRef Name="CoID" />
+          </Key>
+          <Property Name="CoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CID" Type="int" />
+          <Property Name="TimeDate" Type="datetime" />
+          <Property Name="BikeType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CID" Type="int" />
+          <Property Name="CarType" Type="varchar" MaxLength="50" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+          <Property Name="CarLiceinse" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Model" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CaseNo" Type="varchar" MaxLength="50" />
+          <Property Name="Engine" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Car_Operation">
+          <Key>
+            <PropertyRef Name="CoID" />
+          </Key>
+          <Property Name="CoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CID" Type="int" />
+          <Property Name="TimeDate" Type="datetime" />
+          <Property Name="CarType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Motorcycle">
+          <Key>
+            <PropertyRef Name="MotorcycleID" />
+          </Key>
+          <Property Name="MotorcycleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CID" Type="int" />
+          <Property Name="MotorcycleType" Type="varchar" MaxLength="50" />
+          <Property Name="MotorcycleLiceinse" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Model" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CaseNo" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Motorcycle_Operation">
+          <Key>
+            <PropertyRef Name="CoID" />
+          </Key>
+          <Property Name="CoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CID" Type="int" />
+          <Property Name="TimeDate" Type="datetime" />
+          <Property Name="MotorcycleType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sign">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomarID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Bike_Operation_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Bike_Operation" Type="Self.Bike_Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Bike_Operation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bike_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Bike" Type="Self.Bike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Bike">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Operation_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Car_Operation" Type="Self.Car_Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Car_Operation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motorcycle_Operation_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Motorcycle_Operation" Type="Self.Motorcycle_Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Motorcycle_Operation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motorcycle_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Motorcycle" Type="Self.Motorcycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Motorcycle">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TCarDBModelStoreContainer">
+          <EntitySet Name="Bike" EntityType="Self.Bike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bike_Operation" EntityType="Self.Bike_Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car_Operation" EntityType="Self.Car_Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motorcycle" EntityType="Self.Motorcycle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motorcycle_Operation" EntityType="Self.Motorcycle_Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sign" EntityType="Self.Sign" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bike_Operation_Sign" Association="Self.FK_Bike_Operation_Sign">
+            <End Role="Sign" EntitySet="Sign" />
+            <End Role="Bike_Operation" EntitySet="Bike_Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bike_Sign" Association="Self.FK_Bike_Sign">
+            <End Role="Sign" EntitySet="Sign" />
+            <End Role="Bike" EntitySet="Bike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Operation_Sign" Association="Self.FK_Car_Operation_Sign">
+            <End Role="Sign" EntitySet="Sign" />
+            <End Role="Car_Operation" EntitySet="Car_Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Sign" Association="Self.FK_Car_Sign">
+            <End Role="Sign" EntitySet="Sign" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motorcycle_Operation_Sign" Association="Self.FK_Motorcycle_Operation_Sign">
+            <End Role="Sign" EntitySet="Sign" />
+            <End Role="Motorcycle_Operation" EntitySet="Motorcycle_Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motorcycle_Sign" Association="Self.FK_Motorcycle_Sign">
+            <End Role="Sign" EntitySet="Sign" />
+            <End Role="Motorcycle" EntitySet="Motorcycle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TCarDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bike">
+          <Key>
+            <PropertyRef Name="BikeID" />
+          </Key>
+          <Property Name="BikeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CID" Type="Int32" />
+          <Property Name="BikeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BikeModel" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BikeRecipet" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Sign" Relationship="Self.FK_Bike_Sign" FromRole="Bike" ToRole="Sign" />
+        </EntityType>
+        <EntityType Name="Bike_Operation">
+          <Key>
+            <PropertyRef Name="CoID" />
+          </Key>
+          <Property Name="CoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CID" Type="Int32" />
+          <Property Name="TimeDate" Type="DateTime" Precision="3" />
+          <Property Name="BikeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sign" Relationship="Self.FK_Bike_Operation_Sign" FromRole="Bike_Operation" ToRole="Sign" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CID" Type="Int32" />
+          <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CarLiceinse" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Model" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CaseNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Engine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sign" Relationship="Self.FK_Car_Sign" FromRole="Car" ToRole="Sign" />
+        </EntityType>
+        <EntityType Name="Car_Operation">
+          <Key>
+            <PropertyRef Name="CoID" />
+          </Key>
+          <Property Name="CoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CID" Type="Int32" />
+          <Property Name="TimeDate" Type="DateTime" Precision="3" />
+          <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sign" Relationship="Self.FK_Car_Operation_Sign" FromRole="Car_Operation" ToRole="Sign" />
+        </EntityType>
+        <EntityType Name="Motorcycle">
+          <Key>
+            <PropertyRef Name="MotorcycleID" />
+          </Key>
+          <Property Name="MotorcycleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CID" Type="Int32" />
+          <Property Name="MotorcycleType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MotorcycleLiceinse" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Model" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CaseNo" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Sign" Relationship="Self.FK_Motorcycle_Sign" FromRole="Motorcycle" ToRole="Sign" />
+        </EntityType>
+        <EntityType Name="Motorcycle_Operation">
+          <Key>
+            <PropertyRef Name="CoID" />
+          </Key>
+          <Property Name="CoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CID" Type="Int32" />
+          <Property Name="TimeDate" Type="DateTime" Precision="3" />
+          <Property Name="MotorcycleType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sign" Relationship="Self.FK_Motorcycle_Operation_Sign" FromRole="Motorcycle_Operation" ToRole="Sign" />
+        </EntityType>
+        <EntityType Name="Sign">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomarID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bikes" Relationship="Self.FK_Bike_Sign" FromRole="Sign" ToRole="Bike" />
+          <NavigationProperty Name="Bike_Operation" Relationship="Self.FK_Bike_Operation_Sign" FromRole="Sign" ToRole="Bike_Operation" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Car_Sign" FromRole="Sign" ToRole="Car" />
+          <NavigationProperty Name="Car_Operation" Relationship="Self.FK_Car_Operation_Sign" FromRole="Sign" ToRole="Car_Operation" />
+          <NavigationProperty Name="Motorcycles" Relationship="Self.FK_Motorcycle_Sign" FromRole="Sign" ToRole="Motorcycle" />
+          <NavigationProperty Name="Motorcycle_Operation" Relationship="Self.FK_Motorcycle_Operation_Sign" FromRole="Sign" ToRole="Motorcycle_Operation" />
+        </EntityType>
+        <Association Name="FK_Bike_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Bike" Type="Self.Bike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Bike">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bike_Operation_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Bike_Operation" Type="Self.Bike_Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Bike_Operation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Operation_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Car_Operation" Type="Self.Car_Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Car_Operation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motorcycle_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Motorcycle" Type="Self.Motorcycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Motorcycle">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motorcycle_Operation_Sign">
+          <End Role="Sign" Type="Self.Sign" Multiplicity="0..1" />
+          <End Role="Motorcycle_Operation" Type="Self.Motorcycle_Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sign">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Motorcycle_Operation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TCarDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bikes" EntityType="Self.Bike" />
+          <EntitySet Name="Bike_Operation" EntityType="Self.Bike_Operation" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="Car_Operation" EntityType="Self.Car_Operation" />
+          <EntitySet Name="Motorcycles" EntityType="Self.Motorcycle" />
+          <EntitySet Name="Motorcycle_Operation" EntityType="Self.Motorcycle_Operation" />
+          <EntitySet Name="Signs" EntityType="Self.Sign" />
+          <AssociationSet Name="FK_Bike_Sign" Association="Self.FK_Bike_Sign">
+            <End Role="Sign" EntitySet="Signs" />
+            <End Role="Bike" EntitySet="Bikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bike_Operation_Sign" Association="Self.FK_Bike_Operation_Sign">
+            <End Role="Sign" EntitySet="Signs" />
+            <End Role="Bike_Operation" EntitySet="Bike_Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Sign" Association="Self.FK_Car_Sign">
+            <End Role="Sign" EntitySet="Signs" />
+            <End Role="Car" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Operation_Sign" Association="Self.FK_Car_Operation_Sign">
+            <End Role="Sign" EntitySet="Signs" />
+            <End Role="Car_Operation" EntitySet="Car_Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motorcycle_Sign" Association="Self.FK_Motorcycle_Sign">
+            <End Role="Sign" EntitySet="Signs" />
+            <End Role="Motorcycle" EntitySet="Motorcycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motorcycle_Operation_Sign" Association="Self.FK_Motorcycle_Operation_Sign">
+            <End Role="Sign" EntitySet="Signs" />
+            <End Role="Motorcycle_Operation" EntitySet="Motorcycle_Operation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TCarDBModelStoreContainer" CdmEntityContainer="TCarDBEntities1">
+          <EntitySetMapping Name="Bikes">
+            <EntityTypeMapping TypeName="TCarDBModel.Bike">
+              <MappingFragment StoreEntitySet="Bike">
+                <ScalarProperty Name="BikeID" ColumnName="BikeID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="BikeType" ColumnName="BikeType" />
+                <ScalarProperty Name="BikeModel" ColumnName="BikeModel" />
+                <ScalarProperty Name="BikeRecipet" ColumnName="BikeRecipet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bike_Operation">
+            <EntityTypeMapping TypeName="TCarDBModel.Bike_Operation">
+              <MappingFragment StoreEntitySet="Bike_Operation">
+                <ScalarProperty Name="CoID" ColumnName="CoID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="TimeDate" ColumnName="TimeDate" />
+                <ScalarProperty Name="BikeType" ColumnName="BikeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="TCarDBModel.Car">
+              <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="CarLiceinse" ColumnName="CarLiceinse" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_Operation">
+            <EntityTypeMapping TypeName="TCarDBModel.Car_Operation">
+              <MappingFragment StoreEntitySet="Car_Operation">
+                <ScalarProperty Name="CoID" ColumnName="CoID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="TimeDate" ColumnName="TimeDate" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motorcycles">
+            <EntityTypeMapping TypeName="TCarDBModel.Motorcycle">
+              <MappingFragment StoreEntitySet="Motorcycle">
+                <ScalarProperty Name="MotorcycleID" ColumnName="MotorcycleID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="MotorcycleType" ColumnName="MotorcycleType" />
+                <ScalarProperty Name="MotorcycleLiceinse" ColumnName="MotorcycleLiceinse" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motorcycle_Operation">
+            <EntityTypeMapping TypeName="TCarDBModel.Motorcycle_Operation">
+              <MappingFragment StoreEntitySet="Motorcycle_Operation">
+                <ScalarProperty Name="CoID" ColumnName="CoID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="TimeDate" ColumnName="TimeDate" />
+                <ScalarProperty Name="MotorcycleType" ColumnName="MotorcycleType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Signs">
+            <EntityTypeMapping TypeName="TCarDBModel.Sign">
+              <MappingFragment StoreEntitySet="Sign">
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="CustomarID" ColumnName="CustomarID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
